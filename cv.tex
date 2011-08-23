@@ -1,107 +1,47 @@
-\documentclass{article}
+\documentclass[10pt]{article}
 
-\usepackage{hyperref}
-\usepackage{sectsty}
-\sectionfont{\huge\sc}
-\subsectionfont{\LARGE\sc}
-\subsubsectionfont{\large}
-\usepackage{fullpage}
+%
+% setup
+%
+\input{setup}
+
+%
+% begin document
+%
 
 \begin{document}
-\section*{Duncan Macleod}
 
-\hrule \vspace{5mm}
+% set header
+\name{Duncan Macleod}
 
-\subsection*{Contact Information}
-\begin{center}
-\begin{tabular}{ll}
-\textbf{Postal Address:} & \textbf{Work Address:} \\
-Flat 3, 14 The Walk & School of Physics and Astronomy\\
-Roath & Queen's Buildings\\
-Cardiff & Cardiff University\\
-Wales & Cardiff \\
-United Kingdom & Wales\\
-CF24 3AF & United Kingdom\\
-& CF24 3AA \\
-\\
-\multicolumn{2}{l}{\textbf{E-mail:}
-\href{mailto:duncan.macleod@astro.cf.ac.uk}{duncan.macleod@astro.cf.ac.uk}}\\
-\textbf{Home Tel:} +44(0) 2920 313654\\
-\textbf{Office Tel:} +44(0) 2920 875120\\
-\textbf{Mob:} +44(0) 7971 743808\\
-\end{tabular}
-\end{center}
+%
+% contact information
+%
+\input{contact}
 
-\subsection*{Profile} 
-First year postgraduate student looking to gain experience in the field of gravitational waves including data analysis techniques and detector characterisation.
+%
+% personal profile
+%
+\input{academic/profile} 
 
-\subsection*{Education}
-\subsubsection*{September 2009 -- Present: Cardiff University}
-PhD (research) with the Gravitational Waves group (School of Physics and Astronomy) in data analysis searching for gravitational wave signals from compact binary coalescence.
+%
+% education
+%
+\input{education}
 
-\paragraph{Research interests:} The theory and detection of gravitational waves using current enhanced and future advanced detectors, including data analysis searching for compact binary coalescence and improving detector characterisation. I am also interested in working towards the third generation gravitational wave detectors, specifically the Einstein Telescope project.
+%
+% work experience
+%
+\input{academic/experience}
 
-\subsubsection*{September 2004 -- June 2009: The University of Edinburgh}
-Master of Physics in Mathematical Physics. First class Honours.
-\begin{itemize}
-\item Masters Project: Introduction to the theory of gravitational radiation and parameter estimation from compact binary coalescence.
-\item Supervisor: Dr. Luigi Del Debbio
-\end{itemize}
-\paragraph{Courses Included:}
-\begin{center}
-\begin{tabular}{lll}
-$\bullet$ Astrophysical Cosmology & $\bullet$ General Relativity & $\bullet$ Particle Physics \\ $\bullet$ Relativistic Quantum Field Theory & $\bullet$ The Standard Model & $\bullet$ Statistical Physics
-\end{tabular}
-\end{center}
+%
+% interests
+%
+\input{interests}
 
-\subsubsection*{1998--2004: Gryffe High School, Renfrewshire, UK}
-\begin{minipage}{3in}
-\paragraph{SQA Advanced Higher results 2004}
-\begin{center}
-\begin{tabular}{ll}
-Mathematics & A\\
-Music & A\\
-Physics & A \\
-\end{tabular}
-\end{center}
-\end{minipage}
-\begin{minipage}{3in}
-\paragraph{SQA Higher results 2003}
-\begin{center}
-\begin{tabular}{llll}
-Computing & A & Economics & A \\
-English & A & Mathematics & A \\
-Music & A & Physics & A
-\end{tabular}
-\end{center}
-\end{minipage}
-
-\subsection*{Work Experience}
-\paragraph{September 2009 -- Present: Marker and Demonstrator, School of Physics and Astronomy, Cardiff University.} Postgraduate internal work as a demonstrator for a first year undergraduate computing module, and a marker for an first year undergraduate mathematics for physical scientists module.
-
-\paragraph{June 2004 -- January 2010 (part-time): Musician, Highland Band of the Royal Regiment
-of Scotland (TA).} Working under a military rank system while
-performing at musical events has combined the need for creativity
-and technical ability with discipline, organisation and teamwork.
-
-\subsection*{Interests}
-Most of my time outside of study is spent on music. Having played
-the trumpet since the age of 10 I have been involved
-in multiple musical group within Edinburgh, as principal trumpet of the University Symphony Orchestra, for four years, and in \textit{Scottish Sinfonia}, and more recently in Cardiff, as principal trumpet of both the University Symphony Orchestra and Chamber Orchestra.
-
-\subsection*{References}
-\begin{center}
-\begin{tabular}{lll}
-Dr. Patrick Sutton & Dr. Stephen Fairhurst & Prof. B. S. Sathyaprakash \\
-School of Physics and Astronomy & School of Physics and Astronomy & School of Physics and Astronomy \\
-Cardiff University & Cardiff University & Cardiff University\\
-Queen's Buildings &  Queen's Buildings & Queen's Buildings\\
-The Parade & The Parade & The Parade\\
-Cardiff & Cardiff & Caridff\\
-CF24 3AA & CF24 3AA & CF24 3AA\\
-+44(0)2920 874649 & +44(0)2920 870166 & +44(0)2920 876962\\
-\href{mailto:patrick.sutton@astro.cf.ac.uk}{patrick.sutton@astro.cf.ac.uk} & \href{mailto:stephen.fairhurst@astro.cf.ac.uk}{stephen.fairhurst@astro.cf.ac.uk} & \href{mailto:b.sathyaprakash@astro.cf.ac.uk}{b.sathyaprakash@astro.cf.ac.uk}
-\end{tabular}
-\end{center}
+%
+% references
+%
+\input{academic/references}
 
 \end{document}
