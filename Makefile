@@ -6,19 +6,23 @@ DEFTEXFILES      = education.tex setup.tex
 PERSONALTEXFILES = personal/information.tex
 TEXFILES         = $(DEFTEXFILES) $(PERSONALTEXFILES)
 
-ACADEMICTEXFILES= academic/profile.tex
-
+ACADEMICTEXFILES = academic/profile.tex
+PUBLICTEXFILES = public/profile.tex
 
 PDFLATEX=pdflatex
 PDFLATEXFLAGS=-jobname=$(PROJECT)
 
 all: clean academic
 
-.PHONY: academic
+.PHONY: academic public
 
 academic: $(TEXFILES) $(ACADEMICTEXFILES) cv_academic.tex
 	$(PDFLATEX) $(PDFLATEXFLAGS) cv_academic &&\
 	    $(PDFLATEX) $(PDFLATEXFLAGS) cv_academic;\
+
+public: $(TEXFILES) $(PUBLICTEXFILES) cv_public.tex
+	$(PDFLATEX) $(PDFLATEXFLAGS) cv_public &&\
+	    $(PDFLATEX) $(PDFLATEXFLAGS) cv_public;\
 
 clean:
 	base=$(PROJECT);\
