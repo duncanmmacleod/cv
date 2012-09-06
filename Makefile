@@ -1,32 +1,27 @@
 SHELL=/bin/sh
 
 PROJECT=cv
-TEXFILES=cv.tex
-BIBTEXFILES=../references/references.bib
-PUBLISHFILES=
-EXTRA_DIST=
+TARGET=$(PROJECT).pdf
+DEFTEXFILES      = education.tex setup.tex
+PERSONALTEXFILES = personal/information.tex
+TEXFILES         = $(DEFTEXFILES) $(PERSONALTEXFILES)
 
-TEXFLAGS=-interaction=batchmode
-LATEX=latex $(TEXFLAGS)
-DVIPS=dvips
-DVIPDF=dvipdf
+ACADEMICTEXFILES= academic/profile.tex
+
+
 PDFLATEX=pdflatex
-BIBTEX=bibtex
-MAKEGLOSSARY=makeglossaries
-TAR=tar
-DISTFILES= cv.tex *png *eps Makefile
+PDFLATEXFLAGS=-jobname=$(PROJECT)
 
-all: clean pdf
+all: clean academic
 
-pdf: $(TEXFILES) $(BIBTEXFILES)
-	for file in $(TEXFILES) ; do \
-	  base=`basename $$file .tex`; \
-          $(PDFLATEX)     $$base && \
-	  $(PDFLATEX)     $$base ;  \
-	done
+.PHONY: academic
+
+academic: $(TEXFILES) $(ACADEMICTEXFILES) cv_academic.tex
+	$(PDFLATEX) $(PDFLATEXFLAGS) cv_academic &&\
+	    $(PDFLATEX) $(PDFLATEXFLAGS) cv_academic;\
 
 clean:
-	for file in $(TEXFILES) ; do \
-	  base=`basename $$file .tex` ; \
-          rm -f $$base.log $$base.aux $$base.end $$base.bbl $$base.blg $$base.acn $$base.acr $$base.alg $$base.glo $$base.gls $$base.toc $$base.lof; \
-	done
+	base=$(PROJECT);\
+	$(RM) $$base.log $$base.aux $$base.end $$base.bbl $$base.blg $$base.acn\
+	      $$base.acr $$base.alg $$base.glo $$base.gls $$base.toc $$base.lof\
+          $$base.out;\

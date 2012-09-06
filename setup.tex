@@ -1,69 +1,13 @@
-\usepackage{hyperref}
+% import packages
 \usepackage{fullpage}
-\usepackage{sectsty}
-\usepackage{titlesec}
+\usepackage[unicode,pdfpagelabels=false]{hyperref}
 
-%
-% set heading fonts
-%
+% setup hrefs
+\definecolor{linkcolour}{rgb}{0,0.2,0.6}
+\hypersetup{colorlinks,breaklinks,urlcolor=linkcolour, linkcolor=linkcolour}
 
-%\sectionfont{\large\bf}
-%\subsectionfont{\normalsize\bf}
-\setcounter{secnumdepth}{0}
-\titlespacing*{\section}%
-              {-5mm}% left
-              {5mm}% before
-              {0pt}
+% import CV style
+\moderncvtheme[grey]{classic}
 
-\newdimen\sectionwidth
-\def\newsectionwidth#1{%
-                     \sectionwidth=#1
-                     \advance\textwidth-\sectionwidth
-                     \hsize=\textwidth
-                     \hoffset=\sectionwidth
-}
-
-%
-% set paragraph options
-%
-
-%\setlength{\parindent}{0in}
-
-%
-% set new commands
-%
-
-\newlength{\fulllinewidth}
-\setlength{\fulllinewidth}{\textwidth}
-\def\fullline{%
-              \nointerlineskip
-              \moveleft\hoffset\vbox{\hrule width\fulllinewidth}
-              \nointerlineskip
-}
-\newcommand{\name}[1]{\section{#1 \hfill Curriculum Vitae}\vspace{1mm}\fullline\vspace{5mm}}
-
-\newcommand{\myparagraph}[1]{\vspace{1em}\noindent\textbf{#1}}
-
-%
-% set environments
-%
-
-\newenvironment{closeenum}{
-\begin{enumerate}
-  \setlength{\itemsep}{1pt}
-  \setlength{\parskip}{0pt}
-  \setlength{\parsep}{0pt}
-}{\end{enumerate}}
-
-\newenvironment{closeitem}{
-\begin{itemize}
-  \setlength{\itemsep}{1pt}
-  \setlength{\parskip}{0pt}
-  \setlength{\parsep}{0pt}
-}{\end{itemize}}
-
-
-%
-% finalise
-%
-\newsectionwidth{5mm}
+\firstname{Duncan M.}
+\familyname{Macleod}
