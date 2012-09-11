@@ -16,12 +16,6 @@
 % setup arXiv link
 \newcommand\arXiv[1]{\link[#1]{http://arXiv.org/abs/arXiv:#1}}
 
-% Bibliography categories
-\def\makebibcategory#1#2#3{\DeclareBibliographyCategory{#1}\defbibheading{#1}{\subsection*{#2}\cvitem{}{\footnotesize #3}}}
-\makebibcategory{lead}{Lead author publications}{Those publications on which I was lead and corresponding author to the journal.}
-\makebibcategory{contributed}{Contributed publications}{Those publications on which I had a significant contribution to the work presented.}
-\makebibcategory{lvc}{LIGO-Virgo publications}{Those papers published by the LIGO Scientific Collaboration and The Virgo Collaboration on which I have authorship credits.}
-
 % declare bibliography style
 \DeclareFieldFormat
     [article,inbook,incollection,inproceedings,patent,thesis,unpublished]
@@ -30,10 +24,11 @@
     \cventry{}
            {\printnames{author}}
            {\printfield{title}}
-           {\printfield{journal}, \printfield{volume}}
+           {\printfield{journaltitle}, \printfield{volume}}
            {\printfield{year}}
            {\printfield{eprint}}
 }
+
 % setup publications
 \bibliography{../references/references}
 \nocite{*}
