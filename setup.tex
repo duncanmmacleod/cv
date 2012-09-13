@@ -32,11 +32,12 @@
 % declare bibliography style
 \DeclareFieldFormat[article]{title}{#1\isdot}
 \DeclareFieldFormat[article]{eprint}{\arXiv{#1}}
+\DeclareFieldFormat[article]{volume}{\ifthenelse{\equal{#1}{}}{}{, #1}}
 \DeclareBibliographyDriver{article}{%
     \cvpublication{}
            {\printnames{labelname}}
            {\printfield{title}}
-           {\printfield{journaltitle}, \printfield{volume}}
+           {\printfield{journaltitle}\printfield{volume}}
            {\printfield{year}}
            {\printfield{eprint}}
 }
