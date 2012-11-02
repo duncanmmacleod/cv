@@ -7,7 +7,11 @@
 \usepackage{lastpage}
 
 % title
-\title{C. V.}
+\ifthenelse{\equal{\detokenize{cv}}{\jobname}}{
+    \title{C. V.}
+}{
+    \title{Resume}
+}
 \author{Duncan M. Macleod}
 
 % fancy header
