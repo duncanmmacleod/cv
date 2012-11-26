@@ -1,10 +1,8 @@
 % import packages
-\usepackage{fancyhdr}
 \usepackage[hmargin=2cm,vmargin=3.5cm]{geometry}
 \usepackage{hanging}
 \usepackage[unicode,pdfpagelabels=false]{hyperref}
 \usepackage[sorting=ydnt,bibstyle=authoryear-comp,labelyear=false,defernumbers=true,maxnames=20,firstinits=true, uniquename=init,dashed=false,backend=bibtex]{biblatex}
-\usepackage{lastpage}
 
 % title
 \ifthenelse{\equal{\detokenize{cv}}{\jobname}}{
@@ -14,24 +12,7 @@
 }
 \author{Duncan M. Macleod}
 
-% fancy header
-\definecolor{gray}{rgb}{0.80,0.80,0.80}% dark grey
-\renewcommand{\headrulewidth}{0.1pt}
-    \renewcommand{\footrulewidth}{\headrulewidth}
-\renewcommand{\headrule}{{\color{gray}%
-    \hrule width\headwidth height\headrulewidth \vskip-\headrulewidth}}
-\renewcommand{\footrulewidth}{\headrulewidth}
-\renewcommand\footruleskip{2ex}
-\renewcommand{\footrule}{{\color{gray}%
-    \vskip-\footruleskip\vskip-\footrulewidth
-    \hrule width\headwidth height\footrulewidth\vskip\footruleskip}}
-\pagestyle{fancy}
-\makeatletter
-    \fancyhf{}
-    \lhead{\rule[-2ex]{0pt}{2ex}\@author}
-    \rhead{\@title}
-    \cfoot[C]{-- \thepage/\pageref{LastPage}\ --}
-\makeatother
+\input{../latex/fancyhdr}
 
 % setup hrefs
 \definecolor{linkcolour}{rgb}{0,0.2,0.6}

@@ -1,45 +1,16 @@
-SHELL=/bin/sh
+# Makefile for CV
 
-PROJECT=cv
-RESUME=resume
-TARGET=$(PROJECT).pdf
-DEFTEXFILES      = education.tex setup.tex
-PERSONALTEXFILES = personal/information.tex
-TEXFILES         = $(DEFTEXFILES) $(PERSONALTEXFILES)
+include ../latex/makefile.defs
 
-ACADEMICTEXFILES = academic/profile.tex
-PUBLICTEXFILES = public/profile.tex
+.PHONY: all
+all: cv
 
-BIBTEX=bibtex
-PDFLATEX=pdflatex
-PDFLATEXFLAGS=-jobname=$(PROJECT)
+.PHONY: cv
+cv: PROJECT=cv
+cv: cv_academic.tex education.tex setup.tex personal/information.tex academic/profile.tex
+	$(LATEXMK) -pdf -quiet -pdflatex="$(PDFLATEX)" -use-make cv_academic.tex;
 
-all: clean academic
-
-.PHONY: academic public resume
-
-academic: $(TEXFILES) $(ACADEMICTEXFILES) cv_academic.tex
-	$(PDFLATEX) $(PDFLATEXFLAGS) cv_academic &&\
-	$(BIBTEX) $(PROJECT) &&\
-	$(PDFLATEX) $(PDFLATEXFLAGS) cv_academic &&\
-	$(PDFLATEX) $(PDFLATEXFLAGS) cv_academic;\
-
-resume: $(TEXFILES) $(ACADEMICTEXFILES) $(RESUME).tex
-	$(PDFLATEX) $(RESUME) &&\
-	$(BIBTEX) $(RESUME) &&\
-	$(PDFLATEX) $(RESUME) &&\
-	$(PDFLATEX) $(RESUME);\
-
-public: $(TEXFILES) $(PUBLICTEXFILES) cv_public.tex
-	$(PDFLATEX) $(PDFLATEXFLAGS) cv_public &&\
-	    $(PDFLATEX) $(PDFLATEXFLAGS) cv_public;\
-
-clean:
-	base=$(PROJECT);\
-	$(RM) $$base.log $$base.aux $$base.end $$base.bbl $$base.blg $$base.acn\
-	      $$base.acr $$base.alg $$base.glo $$base.gls $$base.toc $$base.lof\
-          $$base.out $$base.run.xml $$base-blx.bib;\
-    base=$(RESUME);\
-	$(RM) $$base.log $$base.aux $$base.end $$base.bbl $$base.blg $$base.acn\
-	      $$base.acr $$base.alg $$base.glo $$base.gls $$base.toc $$base.lof\
-          $$base.out $$base.run.xml $$base-blx.bib;\
+.PHONY: resume
+resume: PROJECT = resume
+resume: education.tex setup.tex personal/information.tex academic/profile.tex resume.tex
+	$(LATEXMK) -pdf -quiet -pdflatex="$(PDFLATEX)" -use-make resume.tex;
