@@ -1,16 +1,17 @@
 # Makefile for CV
 
+PROJECT=cv
+.PHONY: all
+all: cv.pdf
 include ../latex/makefile.defs
 
-.PHONY: all
-all: cv
-
-.PHONY: cv
-cv: PROJECT=cv
-cv: cv_academic.tex education.tex setup.tex personal/information.tex academic/profile.tex
-	$(LATEXMK) -pdf -quiet -pdflatex="$(PDFLATEX)" -use-make cv_academic.tex;
+cv.pdf: cv_academic.tex education.tex setup.tex personal/information.tex academic/profile.tex
+	$(LATEXMK) $(LATEXMKFLAGS)- -jobname=cv cv_academic.tex;
 
 .PHONY: resume
-resume: PROJECT = resume
-resume: education.tex setup.tex personal/information.tex academic/profile.tex resume.tex
-	$(LATEXMK) -pdf -quiet -pdflatex="$(PDFLATEX)" -use-make resume.tex;
+resume: resume.pdf
+resume.pdf: clean education.tex setup.tex personal/information.tex academic/profile.tex resume.tex
+	$(LATEXMK) $(LATEXMKFLAGS)- -jobname=resume resume.tex;
+
+clean: PROJECT = resume cv
+clean-pdf: PROJECT = resume cv
