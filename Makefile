@@ -2,7 +2,7 @@
 
 PROJECT=cv
 .PHONY: all
-all: cv.pdf
+all: clean clean-pdf cv.pdf
 include ../latex/makefile.defs
 
 cv.pdf: cv_academic.tex education.tex setup.tex personal/information.tex academic/profile.tex
