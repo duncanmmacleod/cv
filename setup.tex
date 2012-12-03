@@ -1,6 +1,7 @@
 % import packages
 \usepackage[hmargin=2cm,vmargin=3.5cm]{geometry}
 \usepackage{hanging}
+\usepackage{marvosym}
 \usepackage[unicode,pdfpagelabels=false]{hyperref}
 \usepackage[sorting=ydnt,bibstyle=authoryear-comp,labelyear=false,defernumbers=true,maxnames=20,firstinits=true, uniquename=init,dashed=false,backend=bibtex]{biblatex}
 
@@ -11,7 +12,11 @@
 \ifthenelse{\equal{\detokenize{cv}}{\jobname}}{
     \title{C. V.}
 }{
-    \title{Resume}
+    \ifthenelse{\equal{\detokenize{references}}{\jobname}}{
+        \title{References}
+    }{
+        \title{Resume}
+    }
 }
 \author{Duncan M. Macleod}
 

@@ -13,5 +13,11 @@ resume: resume.pdf
 resume.pdf: clean education.tex setup.tex personal/information.tex academic/profile.tex resume.tex
 	$(LATEXMK) $(LATEXMKFLAGS)- -jobname=resume resume.tex;
 
+.PHONY: references
+references: references.pdf
+references.pdf: setup.tex references.tex academic/references.tex
+	$(LATEXMK) $(LATEXMKFLAGS) -jobname=references references.tex;
+ 
+
 clean: PROJECT = resume cv
 clean-pdf: PROJECT = resume cv
