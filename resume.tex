@@ -1,4 +1,4 @@
-\documentclass[10pt,a4paper,roman]{moderncv}
+\documentclass[11pt,letter,roman]{moderncv}
 
 % setup
 \input{setup}
@@ -7,17 +7,23 @@
 % begin document
 \begin{document}
 
-% contact
-\input{personal/information}
+\input{header}
 
-% education
-\input{education}
+% contact
+%\input{personal/information}
+
+% profile
+\input{academic/profile}
 
 % work experience
 \input{academic/experience}
 
+% education
+\input{education}
+
 % publications
-\input{resume/publications}
+\section{Publications}
+\input{publications/contributed}
 
 % presentations
 \input{academic/presentations}
