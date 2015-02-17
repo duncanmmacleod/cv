@@ -72,7 +72,8 @@ clean: latex-clean
 	          $$target.glo $$target.gls $$target.toc $$target.lof \
               $$target.out $$target.run.xml $$target-blx.bib \
 	          $$target.ist $$target.sbl $$target.lot $$target.sym \
-	          $$target.slg  $$target.glg; \
+	          $$target.slg $$target.glg $$target.fdb_latexmk \
+	          $$target.fls; \
 	done;
 
 .PHONY: clean-pdf
