@@ -21,10 +21,6 @@ PDFLATEX := $(shell which pdflatex)
 ifeq ($(PDFLATEX),)
     $(error pdflatex not found)
 endif
-MAKEGLOSSARIES := $(shell which makeglossaries)
-ifeq ($(MAKEGLOSSARIES),)
-    $(error makeglossaries not found)
-endif
 LATEXMK := $(shell which latexmk)
 ifeq ($(LATEXMK),)
     $(error latexmk not found)
