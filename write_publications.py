@@ -22,6 +22,8 @@ parser.add_argument('config', help='config file with groups')
 parser.add_argument('-o', '--output-dir', default='publications',
                     help="path to output directory for tex files, "
                          "default: %(default)s")
+parser.add_argument('-f', '--file-tag', default=None,
+                    help='file tag to append output references.tex file')
 args = parser.parse_args()
 
 # read configuration file
@@ -50,8 +52,16 @@ for category in config.sections():
 if not os.path.isdir(args.output_dir):
     os.makedirs(args.output_dir)
 
+# get file names
+if args.file_tag:
+    ext = '-%s.tex' % args.file_tag
+else:
+    ext = '.tex'
+
+pubtexfile = os.path.join(args.output_dir, 'publications%s' % ext)
+setuptexfile = os.path.join(args.output_dir, 'setup%s' % ext)
+
 # write publications setup
-setuptexfile = os.path.join(args.output_dir, 'setup.tex')
 setup = open(setuptexfile, 'w')
 print(r"""%% setup publications
 \bibliography{%s}
@@ -61,7 +71,6 @@ print("""% Publication categories
 \def\makebibcategory#1#2#3{\DeclareBibliographyCategory{#1}\defbibheading{#1}{\subsection*{#2}\cvitem{}{#3}}}""", file=setup)
 
 # loop over sections
-pubtexfile = os.path.join(args.output_dir, 'publications.tex')
 pubtex = open(pubtexfile, 'w')
 print(r"\section{Publications}", file=pubtex)
 for category in config.sections():
@@ -78,3 +87,6 @@ for category in config.sections():
           .format(category), file=pubtex)
 
 setup.close()
+print("%s written" % setup.name)
+pubtex.close()
+print("%s written" % pubtex.name)
