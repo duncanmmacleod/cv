@@ -87,27 +87,11 @@
 \firstname{}
 \familyname{}
 
-% setup arXiv link
-\newcommand\arXiv[1]{\link{http://arXiv.org/abs/#1}}
-\newcommand\doi[1]{\link{http://dx.doi.org/#1}}
-
-% define cvpub command
-\newcommand*{\cvpublication}[7][.25em]{%
-    \cventry{#7}{#1}{#2}{#3}{#4}{#5}
-
-    \cvitem[#1]{#2}{%
-        \begin{hangparas}{2em}{1}
-            \textbf{#3}\quad#5, #6 #7%
-        \end{hangparas}
-        {\addtolength{\leftskip}{.25em} #4.}
-    }%
-}
-
 % define cvshort command
 \newcommand*{\cventrysmall}[7][.25em]{%
   \cvitem[#1]{#2}{%
     {\textbf{#3}}%
-	\newline{}%
+    \newline{}%
     \ifthenelse{\equal{#4}{}}{}{#4}%
     \ifthenelse{\equal{#5}{}}{}{, #5}%
     \ifthenelse{\equal{#6}{}}{}{, #6}%
@@ -115,8 +99,11 @@
     \ifx&#7&%
       \else{\newline{}\begin{minipage}[t]{\linewidth}\small#7\end{minipage}}\fi}}
 
-\newenvironment{slashsplit}{\let\underscore\_
-  \renewcommand{\_}{\discretionary{\underscore}{}{\underscore}}}{} 
+% -- bibliography -------------------------------------------------------------
+
+% setup arXiv link
+\newcommand\arXiv[1]{\link{http://arXiv.org/abs/#1}}
+\newcommand\doi[1]{\link{http://dx.doi.org/#1}}
 
 % declare bibliography style
 \DeclareFieldFormat[article]{title}{#1\isdot}
