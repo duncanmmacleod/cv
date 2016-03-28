@@ -117,3 +117,20 @@
              {\scriptsize\iffieldundef{doi}{\printfield{eprint}}{\printfield{doi}}}}
 }
 
+
+% -- references ---------------------------------------------------------------
+
+% define cvpub command
+\newcommand*{\cvreference}[7][.25em]{%
+    % 2: name
+    % 3: title
+    % 4: address
+    % 5: telephone number
+    % 6: email
+    % 7: relationship
+    \cventry{}{#2}{}{#3}{}{#4}
+    \cvline{}{\fixedphonesymbol #5\newline \emailsymbol \emaillink{#6}}
+    %\cvline{}{#5\newline\emaillink{#6}}
+    \cvline{}{#7}
+    \vspace{.5cm}
+}
