@@ -23,8 +23,8 @@ references.pdf: setup.tex references.tex academic/references.tex
 	$(LATEXMK) $(LATEXMKFLAGS) -jobname=references references.tex;
 
 
-publications/publications-%.tex publications/setup-%.tex: publications/%.ini publications/*.bib write_publications.py
-	python write_publications.py --output-dir publications/ $< --file-tag $*
+publications/publications-%.tex publications/setup-%.tex: publications/%.ini publications/*.bib publications/write-publications.py
+	python publications/write-publications.py --output-dir publications/ $< --file-tag $*
 
 clean: PROJECT = resume cv
 clean-pdf: PROJECT = resume cv
