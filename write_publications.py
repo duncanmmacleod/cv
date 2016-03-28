@@ -86,6 +86,9 @@ for category in config.sections():
     print('}}\n\\printbibliography[category={0},heading={0},category={0}]'
           .format(category), file=pubtex)
 
+print('\n\\cvitem{}{A complete or updated list of publications is '
+      'available upon request.}', file=pubtex)
+
 setup.close()
 print("%s written" % setup.name)
 pubtex.close()
