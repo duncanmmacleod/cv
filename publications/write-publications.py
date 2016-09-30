@@ -18,7 +18,7 @@ except ImportError:
 
 # parse command line
 parser = argparse.ArgumentParser(description=__doc__)
-parser.add_argument('config', help='config file with groups')
+parser.add_argument('config', help='config file with groups', nargs='+')
 parser.add_argument('-o', '--output-dir', default='publications',
                     help="path to output directory for tex files, "
                          "default: %(default)s")
@@ -27,11 +27,11 @@ parser.add_argument('-f', '--file-tag', default=None,
 args = parser.parse_args()
 
 # read configuration file
-configdir = os.path.dirname(args.config)
+configdir = os.path.dirname(args.config[0])
 config = configparser.ConfigParser(dict_type=OrderedDict)
 n = config.read(args.config)
 if not len(n):
-    parser.error("Cannot read config file %r" % args.config)
+    parser.error("Cannot read one or more config files: %r" % args.config)
 
 # find categories and read bibtex files
 bibfiles = []
