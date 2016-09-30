@@ -19,7 +19,7 @@ resume.pdf: resume.tex education.tex setup.tex academic/profile.tex publications
 
 .PHONY: references
 references: references.pdf
-references.pdf: setup.tex references.tex academic/references.tex
+references.pdf: setup.tex references.tex header.tex academic/references.tex
 	$(LATEXMK) $(LATEXMKFLAGS) -jobname=references references.tex;
 
 
