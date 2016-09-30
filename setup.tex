@@ -108,10 +108,11 @@
 \DeclareFieldFormat[article]{doi}{\doi{#1}}
 \DeclareBibliographyDriver{article}{%
     \cventry{\small \printfield{journaltitle}}
-            {\printnames{labelname}}
-            {}{\printfield{year}}{}
-            {{\normalsize \printfield{title}}\\
-             {\scriptsize\iffieldundef{doi}{\printfield{eprint}}{\printfield{doi}}}}
+            {\printnames[labelname]{author}}
+            {}  % empty
+            {\printfield{year} {\hspace{0.1em} \scriptsize\iffieldundef{doi}{\printfield{eprint}}{\printfield{doi}}}}
+            {}  % empty
+            {\normalsize \printfield{title}}
 }
 
 
