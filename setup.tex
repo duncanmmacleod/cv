@@ -10,6 +10,7 @@
 \usepackage{xcolor}
 \usepackage{fancyhdr}
 \usepackage{lastpage}
+\usepackage{titlecaps}
 
 \newlength\cliplength
 \newcommand\clip[2]{\setlength\cliplength{#1}\cliphelper#2\relax\relax}
@@ -68,11 +69,7 @@
 \ifthenelse{\equal{\detokenize{cv}}{\jobname}}{
     \title{C. V.}
 }{
-    \ifthenelse{\equal{\detokenize{references}}{\jobname}}{
-        \title{References}
-    }{
-        \title{Resume}
-    }
+    \title{\titlecap{\jobname}}
 }
 
 %\input{../latex/glossary}
