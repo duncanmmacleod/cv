@@ -69,7 +69,7 @@ clean: latex-clean
               $$target.out $$target.run.xml $$target-blx.bib \
 	          $$target.ist $$target.sbl $$target.lot $$target.sym \
 	          $$target.slg $$target.glg $$target.fdb_latexmk \
-	          $$target.fls; \
+	          $$target.fls $$target-blx.bib $$target.run.xml;\
 	done;
 
 .PHONY: clean-pdf
